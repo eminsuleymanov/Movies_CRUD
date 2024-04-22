@@ -12,7 +12,7 @@ const ageInp = document.querySelector("#age");
 const countryInp = document.querySelector("#country");
 const directorInp = document.querySelector("#director");
 const descTextArea = document.querySelector("#desc");
-
+const trailerModal = document.getElementById("modalTrailer");
 
 window.addEventListener("load", () => {
   // console.log('test');
@@ -26,7 +26,12 @@ window.addEventListener("load", () => {
 
 function renderCards(arr) {
   moviesWrapper.innerHTML = "";
-  arr.forEach((movie) => {
+  arr.forEach(async (movie) => {
+    const userId = JSON.parse(localStorage.getItem("userId"));
+
+    const res = await getAll(endpoints.users);
+    const activeUser = res.data.find(user => user.id === userId);
+    console.log(activeUser);
     moviesWrapper.innerHTML += `  <div class="col-lg-3 col-md-6 col-sm-12" data-id=${movie.id} data-editing="false">
         <div class="card">
             <div class="card-img">
@@ -38,6 +43,7 @@ function renderCards(arr) {
             <div class="card-body">
                 <marquee behavior="" direction="right"><h3 class="card-title">${movie.title}</h3></marquee>
                 <div class="d-flex justify-content-between align-items-center">
+                
                     <button class="btn btn-outline-secondary mb-0" onclick="openModal()">click for trailer</button> <br>
                     <div class="age-restriction">
                         <span>${movie.ageRestriction}+</span>
@@ -48,15 +54,20 @@ function renderCards(arr) {
                 <a href="detail.html?id=${movie.id}" class="btn btn-outline-info info-btn">
                     <i class="fa-solid fa-circle-info"></i>
                 </a>
-                <button class="btn btn-outline-primary edit-btn"   data-bs-toggle="modal" data-bs-target="#editModal">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button class="btn btn-outline-danger delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
+                ${activeUser !==undefined ? `
+          <button class="btn btn-outline-primary edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-outline-danger delete-btn">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        ` : ''}
+               
             </div>
         </div>
     </div>`;
+    
+     trailerModal.setAttribute("src",movie.trailerURL)
     //delete buttons
     const deleteBtns = document.querySelectorAll(".delete-btn");
     deleteBtns.forEach((btn) => {
@@ -100,7 +111,7 @@ function renderCards(arr) {
         directorInp.value = movie.director;
         descTextArea.value = movie.description;
 
-        this.closest('.col-lg-3').setAttribute('data-editing','true');
+        this.closest('.col-lg-3').setAttribute('data-editing', 'true');
       });
     });
   });
@@ -111,24 +122,24 @@ editForm.addEventListener("submit", function (e) {
 
   const cards = document.querySelectorAll('.col-lg-3');
   let id;
-  Array.from(cards).map((card)=>{
-    if (card.getAttribute('data-editing')=='true') {
+  Array.from(cards).map((card) => {
+    if (card.getAttribute('data-editing') == 'true') {
       id = card.getAttribute('data-id');
-      card.setAttribute('data-editing','false');
+      card.setAttribute('data-editing', 'false');
     }
   });
 
   const updatedMovie = {
-    title: titleInp.value, 
-    genre: genreInp.value, 
-    country: countryInp.value, 
+    title: titleInp.value,
+    genre: genreInp.value,
+    country: countryInp.value,
     director: directorInp.value,
     ageRestriction: ageInp.value,
     poster: posterInp.value,
     trailerURL: trailerURLInp.value,
     description: descTextArea.value
   }
-  update(endpoints.movies, id, updatedMovie).then(()=>{
+  update(endpoints.movies, id, updatedMovie).then(() => {
     Swal.fire({
       position: "top-end",
       icon: "success",
@@ -136,7 +147,7 @@ editForm.addEventListener("submit", function (e) {
       showConfirmButton: false,
       timer: 1500
     });
-    getAll(endpoints.movies).then((res)=>{
+    getAll(endpoints.movies).then((res) => {
       renderCards(res.data);
     });
   })
@@ -146,7 +157,7 @@ editForm.addEventListener("submit", function (e) {
 
 
 //sort
-const sortSelectOption =document.querySelector('.sort-by-name-select');
+const sortSelectOption = document.querySelector('.sort-by-name-select');
 sortSelectOption.addEventListener('change', async (e) => {
   console.log('Sort option: ', e.target.value);
   let res = await getAll(endpoints.movies);

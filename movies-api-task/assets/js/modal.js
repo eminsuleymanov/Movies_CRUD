@@ -13,7 +13,21 @@ function modal() {
     });
 }
 function openModal() {
-    const modal = document.querySelector('#modal');
-    modal.style.display = "block";
+    const loggedUser = localStorage.getItem("userId");
+    if (loggedUser===null) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Not logged in",
+            text: "Only logged users can watch trailer",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+    }
+    else{
+        const modal = document.querySelector('#modal');
+        modal.style.display = "block";
+    }
+
 }
 modal();

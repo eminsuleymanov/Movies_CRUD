@@ -1,5 +1,5 @@
 
-import { getAll, deleteOne, getOne, update } from "./API/requests/index.js";
+import { getAll } from "./API/requests/index.js";
 import { endpoints } from "./API/constants.js";
 const loginForm = document.querySelector("#login-form");
 const userNameInp = document.querySelector("#user-name");
@@ -26,27 +26,15 @@ loginForm.addEventListener("submit", async function (e) {
   console.log("user password: ", passwordInp.value);
 
   let res = await getAll(endpoints.users);
-
-  const user = res.data.find(user => user.username === userNameInp.value);
-
-  if (!user) {
+console.log(res.data)
+  const user = res.data.find(user => user.username == userNameInp.value && passwordInp.value == user.password);
+  console.log(user);
+  if ((!user)) {
     Swal.fire({
       position: "top-end",
       icon: "error",
-      title: "User not found",
+      title: "Incorrect username or password",
       text: "Please enter a valid username",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    return;
-  }
-
-  if (user.password !== passwordInp.value) {
-    Swal.fire({
-      position: "top-end",
-      icon: "error",
-      title: "Incorrect password",
-      text: "Please enter the correct password",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -55,22 +43,22 @@ loginForm.addEventListener("submit", async function (e) {
 
   localStorage.setItem("userId", user.id);
 
+
   if (rememberMe.checked) {
     localStorage.setItem("rememberMe", "true");
   } else {
     sessionStorage.setItem("rememberMe", "false");
   }
-
-  window.location.replace('index.html'); // Moved inside the event listener
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "User Logged In successfully",
+    showConfirmButton: false,
+    timer: 1500,
+  }).then(() => {
+    window.location.replace('index.html');
+  });
 });
 
-
-// Swal.fire({
-//     position: "top-end",
-//     icon: "error",
-//     title: "username or password is incorrect!",
-//     showConfirmButton: false,
-//     timer: 1500,
-//   })
 
 

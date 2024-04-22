@@ -31,9 +31,15 @@ header {
 .links {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .links li {
   margin-right: 14px;
+  color: white;
+}
+.links li span{
+  color: white;
+    font-size: 20px;
 }
 ul {
   margin-bottom: 0;

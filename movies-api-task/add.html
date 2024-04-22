@@ -34,9 +34,35 @@
             <ul class="links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="add.html">Add</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li class="username-display d-flex align-items-center d-none">| <span class="username-nav mx-2"></span>
+                    | <i class="fa fa-lock d-none mx-1"></i></li>
+
+                <li class="logout d-none"><i class="fa-solid fa-arrow-right-from-bracket"></i></li>
             </ul>
         </div>
     </header>
+
+    <section class="mt-5 pt-5">
+        <div class="container ">
+            <div class="col-6 mx-auto mt-5">
+                <form action="">
+                    <input placeholder="Title" class="form-control mb-3" id="titleInput" type="text">
+                    <input placeholder="Poster" class="form-control mb-3" id="posterInput" type="text">
+                    <input placeholder="TrailerUrl" class="form-control mb-3" id="trailerUrlInput" type="text">
+                    <input placeholder="Genre" class="form-control mb-3" id="genreInput" type="text">
+                    <input placeholder="Description" class="form-control mb-3" id="descriptionInput" type="text">
+                    <input placeholder="AgeRestriction" class="form-control mb-3" id="ageRestrictionInput" type="text">
+                    <input placeholder="Country" class="form-control mb-3" id="countryInput" type="text">
+                    <input placeholder="Director" class="form-control mb-3" id="directorInput" type="text">
+                    <button id="addBtn" type="submit" class="btn btn-outline-success d-block"> Add Movie</button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

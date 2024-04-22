@@ -19,7 +19,7 @@
       "ageRestriction": "0",
       "poster": "https://m.media-amazon.com/images/I/51S092xuYYS._AC_UF894,1000_QL80_.jpg",
       "trailerURL": "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers",
-      "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDATED",
+      "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDAT",
       "id": "2"
     },
     {
@@ -32,6 +32,17 @@
       "trailerURL": "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers",
       "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDATED",
       "id": "3"
+    },
+    {
+      "title": "Spider-man",
+      "poster": "https://insomniac.games/wp-content/uploads/2018/09/Spider-Man_PS4_Selfie_Photo_Mode_LEGAL.jpg",
+      "trailerUrl": "ApXoWvfEYVU",
+      "genre": "animation",
+      "description": "Spider-Man is a superhero appearing in American comic books published by Marvel Comics. Created by writer-editor Stan Lee and artist Steve Ditko, he first appeared in the anthology comic book Amazing Fantasy #15 in the Silver Age of Comic Books",
+      "ageRestriction": 18,
+      "country": "USA",
+      "director": "Stan Lee",
+      "id": "3fQtjQc"
     }
   ],
   "genres": [
@@ -70,6 +81,30 @@
           "movieId": "1"
         }
       ]
+    },
+    {
+      "username": "ramal",
+      "fullName": "ramal ismayilzade",
+      "email": "ramal@mail.ru",
+      "password": "Salam123",
+      "isAdmin": false,
+      "id": 2
+    },
+    {
+      "username": "emin",
+      "fullName": "Elnur Khalilov",
+      "email": "emin14@mail.com",
+      "password": "Salam123",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "username": "elnur",
+      "fullName": "Elnur Khalilov",
+      "email": "elnurxo@code.edu.az",
+      "password": "Salam123",
+      "isAdmin": true,
+      "id": 4
     }
   ]
 }

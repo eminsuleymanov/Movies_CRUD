@@ -36,6 +36,9 @@
                 <li><a href="add.html">Add</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="register.html">Register</a></li>
+                <li class="username-display d-flex align-items-center d-none">| <span class="username-nav mx-2"></span> | <i class="fa fa-lock d-none mx-1"></i></li>
+
+                <li class="logout d-none"><i class="fa-solid fa-arrow-right-from-bracket"></i></li>
             </ul>
         </div>
     </header>
@@ -62,7 +65,7 @@
     </main>
 
     <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" style="z-index: 1111;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -93,7 +96,7 @@
         <div class="modal-content">
             <span id="modalClose">&times;</span>
             <div class="modal__main">
-                <iframe width="935" height="526" src="https://www.youtube.com/embed/CwXOrWvPBPk"
+                <iframe width="935" id="modalTrailer" height="526" src="https://www.youtube.com/embed/CwXOrWvPBPk"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -111,6 +114,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/modal.js"></script>
     <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/navbar.js"></script>
 </body>
 
 </html>
