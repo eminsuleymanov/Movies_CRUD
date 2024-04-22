@@ -1,0 +1,75 @@
+{
+  "movies": [
+    {
+      "title": "Z Shrek 1",
+      "genre": "animation",
+      "country": "USA",
+      "director": "Andrew Adamson",
+      "ageRestriction": "0",
+      "poster": "https://m.media-amazon.com/images/I/51S092xuYYS._AC_UF894,1000_QL80_.jpg",
+      "trailerURL": "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers",
+      "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDATED",
+      "id": "1"
+    },
+    {
+      "title": "A Shrek 2",
+      "genre": "animation",
+      "country": "USA",
+      "director": "Andrew Adamson",
+      "ageRestriction": "0",
+      "poster": "https://m.media-amazon.com/images/I/51S092xuYYS._AC_UF894,1000_QL80_.jpg",
+      "trailerURL": "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers",
+      "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDATED",
+      "id": "2"
+    },
+    {
+      "title": "B Shrek 3",
+      "genre": "animation",
+      "country": "USA",
+      "director": "Andrew Adamson",
+      "ageRestriction": "0",
+      "poster": "https://m.media-amazon.com/images/I/51S092xuYYS._AC_UF894,1000_QL80_.jpg",
+      "trailerURL": "https://www.youtube.com/watch?v=CwXOrWvPBPk&ab_channel=RottenTomatoesClassicTrailers",
+      "description": "In a bid to get his land back, Shrek agrees to retrieve Princess Fiona for the fairytale-hating Lord Farquaad of Duloc, but falls in love with her on the way. UPDATED",
+      "id": "3"
+    }
+  ],
+  "genres": [
+    {
+      "id": "1",
+      "name": "animation"
+    },
+    {
+      "id": "2",
+      "name": "drama"
+    },
+    {
+      "id": "3",
+      "name": "comedy"
+    },
+    {
+      "id": "4",
+      "name": "horror"
+    },
+    {
+      "id": "5",
+      "name": "fantasy"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "emin",
+      "fullName": "emin suleymanov",
+      "email": "emin1404@mail.ru",
+      "password": "Admin123",
+      "isAdmin": true,
+      "favorites": [
+        {
+          "id": 1,
+          "movieId": "1"
+        }
+      ]
+    }
+  ]
+}
