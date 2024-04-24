@@ -32,7 +32,7 @@ function renderCards(arr) {
     const res = await getAll(endpoints.users);
     const activeUser = res.data.find(user => user.id === userId);
     console.log(activeUser);
-    moviesWrapper.innerHTML += `  <div class="col-lg-3 col-md-6 col-sm-12" data-id=${movie.id} data-editing="false">
+    moviesWrapper.innerHTML += `  <div class="mt-2 col-lg-3 col-md-6 col-sm-12" data-id=${movie.id} data-editing="false">
         <div class="card">
             <div class="card-img">
                 <img class="card-img-top"
@@ -117,7 +117,7 @@ function renderCards(arr) {
   });
 }
 
-editForm.addEventListener("submit", function (e) {
+editForm.addEventListener("submit",async function (e) {
   e.preventDefault();
 
   const cards = document.querySelectorAll('.col-lg-3');
@@ -128,14 +128,56 @@ editForm.addEventListener("submit", function (e) {
       card.setAttribute('data-editing', 'false');
     }
   });
+  const file = posterInp.files[0]
+    const size = Math.round(file.size / 1024);
+    const type = file.type;
+    if (!type.includes("image/")) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "File Type need to be an image",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    } else if (size > 3000) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "File Size must be under 3MB",
+            showConfirmButton: false,
+            timer: 1500,
+        }).then(()=>{
+            posterInp.value = '';
+        });
+    } else {
+        const reader = new FileReader();
 
+        const toBase64 = file => new Promise((resolve, reject) => {
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+        });
+        var base64String = await toBase64(file);
+        // console.log(base64String);
+        reader.onloadend = function () {
+           
+            // posterInp.dataset.base64 = base64String;
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "File Added",
+                showConfirmButton: false,
+                timer: 1000,
+            });
+        };
+    }
   const updatedMovie = {
     title: titleInp.value,
     genre: genreInp.value,
     country: countryInp.value,
     director: directorInp.value,
     ageRestriction: ageInp.value,
-    poster: posterInp.value,
+    poster: base64String,
     trailerURL: trailerURLInp.value,
     description: descTextArea.value
   }

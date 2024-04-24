@@ -46,20 +46,29 @@
 
     <section class="mt-5 pt-5">
         <div class="container ">
-            <div class="col-6 mx-auto mt-5">
-                <form action="">
-                    <input placeholder="Title" class="form-control mb-3" id="titleInput" type="text">
-                    <input placeholder="Poster" class="form-control mb-3" id="posterInput" type="text">
-                    <input placeholder="TrailerUrl" class="form-control mb-3" id="trailerUrlInput" type="text">
-                    <input placeholder="Genre" class="form-control mb-3" id="genreInput" type="text">
-                    <input placeholder="Description" class="form-control mb-3" id="descriptionInput" type="text">
-                    <input placeholder="AgeRestriction" class="form-control mb-3" id="ageRestrictionInput" type="text">
-                    <input placeholder="Country" class="form-control mb-3" id="countryInput" type="text">
-                    <input placeholder="Director" class="form-control mb-3" id="directorInput" type="text">
-                    <button id="addBtn" type="submit" class="btn btn-outline-success d-block"> Add Movie</button>
-                    
-                </form>
+            <div class="row mx-auto w-100 justify-content-center">
+                <div class="col-6 mx-3 mt-5">
+                    <form action="">
+                        <input placeholder="Title" class="form-control mb-3" id="titleInput" type="text">
+                        <input placeholder="Poster" class="form-control mb-3" id="posterInput" type="file">
+                        <input placeholder="TrailerUrl" class="form-control mb-3" id="trailerUrlInput" type="text">
+                        <input placeholder="Genre" class="form-control mb-3" id="genreInput" type="text">
+                        <input placeholder="Description" class="form-control mb-3" id="descriptionInput" type="text">
+                        <input placeholder="AgeRestriction" class="form-control mb-3" id="ageRestrictionInput" type="text">
+                        <input placeholder="Country" class="form-control mb-3" id="countryInput" type="text">
+                        <input placeholder="Director" class="form-control mb-3" id="directorInput" type="text">
+                        <button id="addBtn" type="submit" class="btn btn-outline-success d-block"> Add Movie</button>
+                        
+                    </form>
+                </div>
+                <div class="col-3 mt-5">
+                    <div class="drop-zone">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+
             </div>
+           
         </div>
     </section>
 
